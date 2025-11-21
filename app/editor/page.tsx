@@ -10,7 +10,7 @@ import { startGeneration } from "../../lib/api";
 
 export default function EditorPage() {
   const params = useSearchParams();
-  const uploadId = params.get("uploadId"); // may be null
+  const uploadId = params.get("uploadId");
   const router = useRouter();
 
   const [modelData, setModelData] = useState({
@@ -68,3 +68,5 @@ export default function EditorPage() {
     </div>
   );
 }
+
+export const dynamic = "force-dynamic";
