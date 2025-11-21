@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic"; // <--- ADD THIS LINE
+
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import ModelSelector from "../../components/ModelSelector";
@@ -26,7 +28,6 @@ export default function EditorContent() {
   const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
-    // Redirect if uploadId is missing
     if (!uploadId) {
       router.push("/upload");
     }
@@ -49,7 +50,6 @@ export default function EditorContent() {
     <div className="space-y-6 max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold">Choose Model & Style</h1>
 
-      {/* Image Preview */}
       {imageUrl && (
         <div className="bg-white rounded-xl shadow-lg p-4 border border-gray-200">
           <p className="text-sm font-semibold text-gray-700 mb-2">
