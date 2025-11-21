@@ -31,7 +31,7 @@ function GenerateContent() {
   }, [jobId, router]);
 
   return (
-    <div className="text-center space-y-4">
+    <div className="text-center space-y-4 p-6">
       <h1 className="text-2xl font-bold">Generating Photoshoot...</h1>
       <JobProgress progress={progress} />
     </div>
