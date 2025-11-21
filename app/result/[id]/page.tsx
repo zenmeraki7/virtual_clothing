@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getResult } from "@/lib/api";
+import { getResult } from "../../../lib/api";
 import { useParams } from "next/navigation";
-import FinalPreview from "@/components/FinalPreview";
+import FinalPreview from "../../../components/FinalPreview";
 
 type ResultData = {
   vtonUrl: string;

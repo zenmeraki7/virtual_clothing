@@ -1,8 +1,8 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
-import JobProgress from "@/components/JobProgress";
+import JobProgress from "../../components/JobProgress";
 import { useEffect, useState } from "react";
-import { getJobStatus } from "@/lib/api";
+import { getJobStatus } from "../../lib/api";
 
 export default function GeneratePage() {
   const params = useSearchParams();

@@ -1,7 +1,7 @@
 "use client";
-import FileUploader from "@/components/FileUploader";
+import FileUploader from "../../components/FileUploader";
 import { useState } from "react";
-import { uploadImage } from "@/lib/api";
+import { uploadImage } from "../../lib/api";
 import { useRouter } from "next/navigation";
 
 export default function UploadPage() {

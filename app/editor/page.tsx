@@ -1,11 +1,11 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import ModelSelector from "@/components/ModelSelector";
-import SkinToneSelector from "@/components/SkinToneSelector";
-import PoseSelector from "@/components/PoseSelector";
-import BackgroundSelector from "@/components/BackgroundSelector";
-import { startGeneration } from "@/lib/api";
+import ModelSelector from "../../components/ModelSelector";
+import SkinToneSelector from "../../components/SkinToneSelector";
+import PoseSelector from "../../components/PoseSelector";
+import BackgroundSelector from "../../components/BackgroundSelector";
+import { startGeneration } from "../../lib/api";
 import { useState } from "react";
 
 export default function EditorPage() {
