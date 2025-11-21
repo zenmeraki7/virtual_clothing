@@ -1,17 +1,15 @@
 "use client";
 
-
-
 import { useSearchParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import ModelSelector from "../../components/ModelSelector";
 import SkinToneSelector from "../../components/SkinToneSelector";
 import PoseSelector from "../../components/PoseSelector";
 import BackgroundSelector from "../../components/BackgroundSelector";
 import { startGeneration } from "../../lib/api";
 
-
-export default function EditorPage() {
+// Content component that uses useSearchParams
+function EditorContent() {
   const params = useSearchParams();
   const uploadId = params.get("uploadId");
   const router = useRouter();
@@ -47,5 +45,21 @@ export default function EditorPage() {
         Generate Photoshoot
       </button>
     </div>
+  );
+}
+
+// Main page with Suspense wrapper
+export default function EditorPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-black border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <EditorContent />
+    </Suspense>
   );
 }
