@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = "force-dynamic"; // <--- Required to stop prerender
 
 import { useSearchParams, useRouter } from "next/navigation";
 import ModelSelector from "../../components/ModelSelector";
@@ -21,7 +22,8 @@ export default function EditorPage() {
   });
 
   const start = async () => {
-    const res = await startGeneration(uploadId!, modelData);
+    if (!uploadId) return alert("Invalid upload session!");
+    const res = await startGeneration(uploadId, modelData);
     router.push(`/generate?jobId=${res.jobId}`);
   };
 
@@ -30,11 +32,8 @@ export default function EditorPage() {
       <h1 className="text-3xl font-bold">Choose Model & Style</h1>
 
       <ModelSelector value={modelData.gender} onChange={v => setModelData({ ...modelData, gender: v })} />
-
       <SkinToneSelector value={modelData.skinTone} onChange={v => setModelData({ ...modelData, skinTone: v })} />
-
       <PoseSelector value={modelData.pose} onChange={v => setModelData({ ...modelData, pose: v })} />
-
       <BackgroundSelector value={modelData.background} onChange={v => setModelData({ ...modelData, background: v })} />
 
       <button
